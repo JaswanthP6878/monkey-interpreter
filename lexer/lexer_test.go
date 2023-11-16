@@ -86,8 +86,8 @@ func TestExtraTokens(t *testing.T) {
 		return true
 	} 
 	!*/
-
 	10 == 10
+	9 != 10
    `
 
 	tests := []struct {
@@ -149,7 +149,10 @@ func TestExtraTokens(t *testing.T) {
 		{token.ASTERIK, "*"},
 		{token.SLASH, "/"},
 		{token.INT, "10"},
-		{token.EQUALS, "=="},
+		{token.EQ, "=="},
+		{token.INT, "10"},
+		{token.INT, "9"},
+		{token.NOT_EQ, "!="},
 		{token.INT, "10"},
 
 		{token.EOF, ""},

@@ -17,8 +17,8 @@ const (
 	ASTERIK = "*"
 	SLASH   = "/"
 
-	EQUALS   = "=="
-	NTEQUALS = "!="
+	EQ     = "=="
+	NOT_EQ = "!="
 
 	// Delimiters
 	COMMA     = ","
