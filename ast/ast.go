@@ -9,12 +9,17 @@ type Node interface {
 
 // There are two types of nodes to be constructed by the AST
 // Statments are code that do not return a value
+
+// statementNode method is a marker interface method so as to make
+// compiler care for statementNode
 type Statement interface {
 	Node
 	statementNode()
 }
 
 // Expressions have a return value
+// expressionNode method is a marker interface method so as to make
+// compiler care for statementNode
 type Expression interface {
 	Node
 	expressionNode()
@@ -46,6 +51,8 @@ type LetStatement struct {
 func (ls *LetStatement) statementNode()       {}
 func (ls *LetStatement) TokenLiteral() string { return ls.Token.Literal }
 
+// Identifier is considered expression
+// this is for convinence as some Identifies do produce values
 type Identifier struct {
 	Token token.Token // IDENT token
 	Value string
