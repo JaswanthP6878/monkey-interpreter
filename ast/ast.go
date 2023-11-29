@@ -58,6 +58,15 @@ type Identifier struct {
 	Value string
 }
 
-func (i *Identifier) expressionNode() {}
-
+func (i *Identifier) expressionNode()      {}
 func (i *Identifier) TokenLiteral() string { return i.Token.Literal }
+
+// Return statement has the syntax of
+// return <expression>;
+type ReturnStatement struct {
+	Token       token.Token // RETURN token
+	ReturnValue Expression
+}
+
+func (r *ReturnStatement) statementNode()       {}
+func (r *ReturnStatement) TokenLiteral() string { return r.Token.Literal }
