@@ -117,7 +117,8 @@ func (r *ReturnStatement) String() string {
 	return out.String()
 }
 
-// This is a wrapper type that wraps around expressions
+// This is a wrapper type around expressions to have them as Statements in
+// the ast
 type ExpressionStatement struct {
 	Token      token.Token // the first token of this expression
 	Expression Expression
