@@ -13,9 +13,8 @@ type Node interface {
 
 // There are two types of nodes to be constructed by the AST
 // Statments are code that do not return a value
-
 // statementNode method is a marker interface method so as to make
-// compiler care for statementNode
+// compiler warnings for statementNode
 type Statement interface {
 	Node
 	statementNode()
@@ -135,3 +134,13 @@ func (e *ExpressionStatement) String() string {
 	return ""
 
 }
+
+// integer Literal is for types that have '5;'
+type IntegerLiteral struct {
+	Token token.Token
+	Value int64
+}
+
+func (i *IntegerLiteral) expressionNode()      {}
+func (i *IntegerLiteral) TokenLiteral() string { return i.Token.Literal }
+func (i *IntegerLiteral) String() string       { return i.Token.Literal }
